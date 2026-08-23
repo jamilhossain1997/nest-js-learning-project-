@@ -50,7 +50,7 @@ export class StudentService {
        const index = this.students.findIndex(student => student.id === id);
        if(index !== -1){
            const deletedStudent = this.students.splice(index,1);
-           return deletedStudent[0];
+           return { message: `Student with ID ${id} deleted successfully`};
        }
    }
 
