@@ -25,4 +25,14 @@ export class StudentService {
         this.students.push(NewStudent);
         return NewStudent;
     }
+
+    updateStudent(id:number, student:{ name:string, age:number}){
+        const index = this.students.findIndex(student => student.id === id);
+        if(index !== -1){
+            this.students[index] = {id, ...student}
+            return this.students[index];
+        }else{
+            throw new Error(`Student with id ${id} not found`);
+        }
+    }
 }
